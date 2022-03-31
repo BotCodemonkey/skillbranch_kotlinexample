@@ -12,4 +12,16 @@
 /captures
 .externalNativeBuild
 .cxx
-local.properties
+
+/gradle
+/build.gradle
+/gradle.properties
+/gradlew
+/gradlew.bat
+/settings.gradle
+/app/build
+/app/libs/
+/app/build.gradle
+/app/src/androidTest
+/app/src/main/res
+/app/src/main/AndroidManifest.xml
