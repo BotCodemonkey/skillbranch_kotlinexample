@@ -82,5 +82,8 @@ object UserHolder {
         map[phone]?.regenerateAccessCode(login)
     }
 
+    fun clearHolder(){
+        map.clear()
+    }
 
 }
