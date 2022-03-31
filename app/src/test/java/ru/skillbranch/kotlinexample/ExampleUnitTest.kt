@@ -1,5 +1,6 @@
 package ru.skillbranch.kotlinexample
 
+import org.junit.Assert
 import org.junit.Test
 
 import org.junit.Assert.*
@@ -10,8 +11,26 @@ import org.junit.Assert.*
  * See [testing documentation](http://d.android.com/tools/testing).
  */
 class ExampleUnitTest {
+
     @Test
-    fun addition_isCorrect() {
-        assertEquals(4, 2 + 2)
+    fun register_user() {
+        val holder = UserHolder
+        holder.registerUser("John Doe", "John_Doe@unknown.com", "testPass")
+        val expectedInfo = """
+            firstName: John
+            lastName: Doe
+            login: john_doe@unknown.com
+            fullName: John Doe
+            initials: J D
+            email: John_Doe@unknown.com
+            phone: null
+            meta: {auth=password}
+        """.trimIndent()
+
+        val failResult = holder.loginUser("John_Doe@unknown.com", "testPass")
+        val succsessResult = holder.loginUser("john_doe@unknown.com", "testPass")
+
+        Assert.assertEquals(null, failResult)
+        Assert.assertEquals(expectedInfo, succsessResult)
     }
 }
